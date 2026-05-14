@@ -7,7 +7,7 @@ export const fetchCompanyProfile = async (fields, signal) => {
       signal,
     }),
     fetch(
-      `https://gnews.io/api/v4/search?q=${companyName}&lang=en&max=6&apikey=${import.meta.env.VITE_GNEWS_KEY}`,
+      `https://gnews.io/api/v4/search?q=${companyName}&lang=en&max=3&apikey=${import.meta.env.VITE_GNEWS_KEY}`,
       { signal },
     ),
   ]);

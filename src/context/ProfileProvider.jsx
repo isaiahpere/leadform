@@ -30,6 +30,8 @@ export const ProfileProvider = ({ children }) => {
   const stateValue = useMemo(() => state, [state]);
   const dispatchValue = useMemo(() => dispatch, [dispatch]);
 
+  console.log(stateValue);
+
   return (
     <ProfileStateContext.Provider value={stateValue}>
       <ProfileDispatchContext.Provider value={dispatchValue}>

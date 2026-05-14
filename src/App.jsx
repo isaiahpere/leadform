@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import { Routes, Route, NavLink } from "react-router-dom";
+import { ProtectedRoute } from "./components/UI/ProtectedRoute";
 
 const Home = lazy(() => import("./pages/Home"));
 const Results = lazy(() => import("./pages/Results"));
@@ -26,7 +27,14 @@ const App = () => {
         <Suspense fallback={Loading}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/results" element={<Results />} />
+            <Route
+              path="/results"
+              element={
+                <ProtectedRoute>
+                  <Results />
+                </ProtectedRoute>
+              }
+            />
           </Routes>
         </Suspense>
       </main>
