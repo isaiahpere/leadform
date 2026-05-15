@@ -26,9 +26,11 @@ export const LeadFormFields = () => {
   const industryId = useId();
   const countryId = useId();
   const emailId = useId();
+
   const controllerRef = useRef(null);
 
   const { fetchProfile } = useCompanyProfile();
+
   const handleBlur = (field) => {
     setTouched(field);
     const validatedErrors = validateLeadForm(fields);
@@ -50,6 +52,7 @@ export const LeadFormFields = () => {
       setSubmitting(true);
       controllerRef.current = new AbortController();
       await fetchProfile(fields, controllerRef.current?.signal);
+      // shoudl check for errors before navgiation and reset
       navigate("/results");
       reset();
     } catch (err) {
